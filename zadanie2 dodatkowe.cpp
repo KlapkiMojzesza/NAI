@@ -54,22 +54,18 @@ double optimise(auto function, auto domain, int maxIterations = 1000)
 
     end = clock();
     cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
-    cout << "Iterations: " << maxIterations << " Time needed: " << cpu_time_used << " Result: ";
+    cout << "Iteracje: " << maxIterations << " Potrzebny czas: " << cpu_time_used << " Wynik: ";
     return lowest;
 }
 
 int main()
 {
     double result = 0;
-
-    auto himmel_f = [](double x, double y)
-    { return pow(pow(x, 2) + y - 11, 2) + pow(x + pow(y, 2) - 7, 2); };
-
     vector<double> domain = {-5, 5};
 
     for (int i = 0; i < 20; i++)
     {
-        cout <<fixed<< optimise(himmel_f, domain, 100000) << endl;
+        cout <<fixed<< optimise(himmelblau_function, domain, 100000) << " " << i +1 <<endl;
     }
     return 0;
 }
